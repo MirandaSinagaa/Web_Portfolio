@@ -1,0 +1,52 @@
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap');
+
+/* CSS Variables for Color Palette */
+:root {
+    --bg-primary: #F9F5F6;
+    --bg-secondary: #F8E8EE;
+    --accent-primary: #F2BED1;
+    --accent-secondary: #FDCEDF;
+    --text-primary: #374151;   /* gray-700 */
+    --text-headings: #111827;  /* gray-900 */
+}
+
+/* General Body Styles */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+/* Style untuk link navigasi yang aktif */
+.nav-link-active {
+    font-weight: bold;
+    color: var(--text-headings); /* Menggunakan variabel untuk konsistensi */
+    /* text-decoration: underline; --> Dihapus untuk menghindari duplikasi */
+    text-underline-offset: 4px; /* Properti ini tetap bisa berguna jika Anda ingin menggunakan text-decoration di tempat lain */
+    position: relative; /* Diperlukan agar ::after diposisikan relatif terhadap elemen ini */
+}
+
+/* Garis bawah kustom menggunakan pseudo-element ::after */
+.nav-link-active::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--accent-primary);
+    position: absolute; /* Memposisikan garis bawah */
+    bottom: -4px;     /* Atur jarak garis bawah dari teks */
+    left: 0;
+    transition: width .3s;
+}
+
+/* Styles for Calculator Radio Buttons */
+input[type="radio"].peer:checked + label {
+    background-color: var(--accent-primary);
+    color: var(--text-headings);
+    border-color: var(--accent-primary);
+}
+
+/* Hover effect for buttons */
+#calculate-btn:hover,
+form button[type="submit"]:hover {
+    background-color: var(--accent-secondary) !important;
+}
